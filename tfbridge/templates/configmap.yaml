@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "tfbridge.fullname" . }}
+  labels:
+    {{- include "tfbridge.labels" . | nindent 4 }}
+data:
+  tfbridge.yaml: |-
+    server:
+      port: {{.Values.httpPort}}
+    management:
+      server:
+        port: {{.Values.mgmtPort}}
+      endpoint:
+        health:
+          show-details: always
+      endpoints:
+        web:
+          exposure:
+            include: "*"
+    bridge:
+      bricklets:
+        {{- toYaml .Values.bricklets | nindent 8}}
+      mqtt:
+        service: mosquitto-mqtt
+    spring:
+      cloud:
+        discovery:
+          client:
+            simple:
+              instances:
+                tf:
+                {{- range .Values.tfInstances}}
+                - uri: tcp://{{ . }}:4223
+                {{- end }}

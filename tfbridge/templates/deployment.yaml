@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "tfbridge.fullname" . }}
+  labels:
+    {{- include "tfbridge.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "tfbridge.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "tfbridge.selectorLabels" . | nindent 8 }}
+      annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+    spec:
+      serviceAccountName: {{ include "tfbridge.serviceAccountName" . }}
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{.Values.httpPort}}
+              name: default
+            - containerPort: {{.Values.mgmtPort}}
+              name: actuator
+          args:
+            - tfbridge.jar
+          env:
+            - name: SPRING_APPLICATION_NAME
+              value: {{ include "tfbridge.fullname" . }}
+          livenessProbe:
+            httpGet:
+              port: {{.Values.mgmtPort}}
+              path: actuator/health
+            periodSeconds: 5
+            failureThreshold: 3
+            initialDelaySeconds: 120
+          readinessProbe:
+            httpGet:
+              port: {{.Values.mgmtPort}}
+              path: actuator/health
+            initialDelaySeconds: 120
+            periodSeconds: 2
+            successThreshold: 2
+            failureThreshold: 60
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

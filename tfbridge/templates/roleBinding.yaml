@@ -1,0 +1,14 @@
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: {{ include "tfbridge.fullname" . }}
+  labels:
+    {{- include "tfbridge.labels" . | nindent 4 }}
+subjects:
+  - kind: ServiceAccount
+    name: {{ include "tfbridge.serviceAccountName" . }}
+roleRef:
+  kind: Role
+  name: {{ include "tfbridge.fullname" . }}
+  apiGroup: rbac.authorization.k8s.io
+

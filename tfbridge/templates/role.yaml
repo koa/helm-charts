@@ -1,0 +1,11 @@
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: {{ include "tfbridge.fullname" . }}
+  labels:
+    {{- include "tfbridge.labels" . | nindent 4 }}
+rules:
+  - apiGroups: [""] # "" indicates the core API group
+    resources: ["pods","configmaps", "endpoints","services"]
+    verbs: ["get", "watch", "list"]
+

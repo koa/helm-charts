@@ -1,0 +1,4 @@
+apiVersion: v2
+description: Bridges all Devices of a list of tinker forge gateways into mqtt
+name: tfbridge
+version: 0.1.0
