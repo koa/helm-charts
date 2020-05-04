@@ -22,6 +22,23 @@ entries:
     urls:
     - https://github.com/koa/helm-charts/releases/download/mosquitto-0.1.0/mosquitto-0.1.0.tgz
     version: 0.1.0
+  raoa:
+  - apiVersion: v2
+    appVersion: 20200301-185904
+    created: "2020-05-04T09:02:53.543090504+02:00"
+    dependencies:
+    - import-values:
+      - kafka
+      name: kafka
+      repository: http://storage.googleapis.com/kubernetes-charts-incubator
+      version: 0.20.7
+    description: Deployment of RAoA to kubernetes
+    digest: b37bdd4b9728d42bfc04723dd9f44487e9e1e917669f22e1eca22f5813890cab
+    name: raoa
+    type: application
+    urls:
+    - https://github.com/koa/helm-charts/releases/download/raoa-0.0.1/raoa-0.0.1.tgz
+    version: 0.0.1
   tfbridge:
   - apiVersion: v2
     created: "2020-03-28T14:37:48.263658874+01:00"
