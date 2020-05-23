@@ -216,7 +216,7 @@ data:
     #bind_address
     
     # Port to use for the default listener.
-    #port 1883
+    port 1883
     
     # Bind the listener to a specific interface. This is similar to
     # bind_address above but is useful when an interface has multiple addresses or
@@ -245,7 +245,7 @@ data:
     # Websockets support is currently disabled by default at compile time.
     # Certificate based TLS may be used with websockets, except that
     # only the cafile, certfile, keyfile and ciphers options are supported.
-    #protocol mqtt
+    protocol mqtt
     
     # Set use_username_as_clientid to true to replace the clientid that a client
     # connected with with its username. This allows authentication to be tied to

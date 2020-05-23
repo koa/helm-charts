@@ -35,9 +35,6 @@ spec:
             - name: default
               containerPort: 1883
               protocol: TCP
-            - name: websocket
-              containerPort: 9001
-              protocol: TCP
           livenessProbe:
             tcpSocket:
               port: default

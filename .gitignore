@@ -1,1 +1,4 @@
 .idea/
+/.deploy/
+/.cr-release-packages/
+/.cr-index/
