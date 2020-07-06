@@ -3,28 +3,28 @@ entries:
   mosquitto:
   - apiVersion: v1
     appVersion: 1.6.8
-    created: "2020-05-23T07:53:03.732370149+02:00"
+    created: "2020-07-06T14:21:12.749994571+02:00"
     description: Eclipse Mosquitto - An open source MQTT broker
     digest: 9e14d2dc1395b95e44457d83f1304014bb5d5e6840aa2c37814059fc4b095420
     home: https://mosquitto.org/
     icon: https://mosquitto.org/images/mosquitto-text-side-28.png
     keywords:
-      - message queue
-      - MQTT
-      - mosquitto
-      - eclipse-iot
+    - message queue
+    - MQTT
+    - mosquitto
+    - eclipse-iot
     maintainers:
-      - email: helm@gavinmogan.com
-        name: Gavin Mogan
+    - email: helm@gavinmogan.com
+      name: Gavin Mogan
     name: mosquitto
     sources:
-      - https://github.com/eclipse/mosquitto
+    - https://github.com/eclipse/mosquitto
     urls:
-      - https://github.com/koa/helm-charts/releases/download/mosquitto-0.1.1/mosquitto-0.1.1.tgz
+    - https://github.com/koa/helm-charts/releases/download/mosquitto-0.1.1/mosquitto-0.1.1.tgz
     version: 0.1.1
   - apiVersion: v1
     appVersion: 1.6.8
-    created: "2020-03-28T14:37:48.083658811+01:00"
+    created: "2020-07-06T14:21:12.498147381+02:00"
     description: Eclipse Mosquitto - An open source MQTT broker
     digest: d6cf11024f7845947d8292a9607b859c8af681acf5d5aa33eb6a7e568bab6845
     home: https://mosquitto.org/
@@ -45,8 +45,18 @@ entries:
     version: 0.1.0
   raoa:
   - apiVersion: v2
+    appVersion: 20200706-100422
+    created: "2020-07-06T14:21:13.160773514+02:00"
+    description: Deployment of RAoA to kubernetes
+    digest: 2c2f6da2668bd8fe8c72f2a724586b1f6429b16dc2ef6c2f53b9d53dbe2de526
+    name: raoa
+    type: application
+    urls:
+    - https://github.com/koa/helm-charts/releases/download/raoa-0.0.2/raoa-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
     appVersion: 20200301-185904
-    created: "2020-05-04T09:02:53.543090504+02:00"
+    created: "2020-07-06T14:21:12.961613636+02:00"
     dependencies:
     - import-values:
       - kafka
@@ -62,11 +72,11 @@ entries:
     version: 0.0.1
   tfbridge:
   - apiVersion: v2
-    created: "2020-03-28T14:37:48.263658874+01:00"
+    created: "2020-07-06T14:21:13.35713545+02:00"
     description: Bridges all Devices of a list of tinker forge gateways into mqtt
     digest: 364a5346b7f6c1a793b05589dd5eb45ffab742f81d346b7a48d248a010b9732c
     name: tfbridge
     urls:
     - https://github.com/koa/helm-charts/releases/download/tfbridge-0.1.0/tfbridge-0.1.0.tgz
     version: 0.1.0
-generated: "2020-03-28T14:37:47.532352545+01:00"
+generated: "2020-07-06T14:21:12.261595462+02:00"
