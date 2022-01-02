@@ -553,11 +553,11 @@ data:
     # subscriptions, currently in-flight messages and retained
     # messages.
     # retained_persistence is a synonym for this option.
-    #persistence false
+    persistence true
     
     # The filename to use for the persistent database, not including
     # the path.
-    #persistence_file mosquitto.db
+    persistence_file mosquitto.db
     
     # Location for persistent database. Must include trailing /
     # Default is an empty string (current directory).
@@ -604,8 +604,8 @@ data:
     #log_type error
     #log_type warning
     #log_type notice
-    #log_type information
-    log_type debug
+    log_type information
+    #log_type debug
     
     
     # If set to true, client connection and disconnection messages will be included
