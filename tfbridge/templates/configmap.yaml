@@ -19,17 +19,8 @@ data:
           exposure:
             include: "*"
     bridge:
-      bricklets:
-        {{- toYaml .Values.bricklets | nindent 8}}
+      {{- toYaml .Values.bridge | nindent 6}}
       mqtt:
-        service: mosquitto-mqtt
+        service: {{.Values.}}
     spring:
-      cloud:
-        discovery:
-          client:
-            simple:
-              instances:
-                tf:
-                {{- range .Values.tfInstances}}
-                - uri: tcp://{{ . }}:4223
-                {{- end }}
+      {{- toYaml .Values.spring | nindent 6}}

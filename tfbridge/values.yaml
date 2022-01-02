@@ -10,31 +10,8 @@ image:
   pullPolicy: IfNotPresent
 httpPort: 8080
 mgmtPort: 9080
-tfInstances:
-  - 127.0.0.1
-bricklets:
-  BmS:
-    name: Keller Licht 1
-  Bom:
-    name: Keller Licht 2
-  BmN:
-    name: Keller Licht 3
-  BnF:
-    name: Keller Licht 4
-  H7C:
-    name: Test LCD
-  t2Y:
-    name: Test Temp
-  wre:
-    name: Test Motion detector v1
-  HA5:
-    name: Keller Serverraum
-  EJy:
-    name: DMX Bricklet test
-    dmxChannels:
-      - Stripe 1 Warm
-      - Stripe 1 Cold
-
+spring: {}
+bridge: {}
 nameOverride: ""
 fullnameOverride: ""
 
