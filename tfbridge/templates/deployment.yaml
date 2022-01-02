@@ -36,13 +36,13 @@ spec:
               port: {{.Values.mgmtPort}}
               path: actuator/health
             periodSeconds: 5
-            failureThreshold: 3
+            failureThreshold: 20
             initialDelaySeconds: 120
           readinessProbe:
             httpGet:
               port: {{.Values.mgmtPort}}
               path: actuator/health
-            initialDelaySeconds: 120
+            initialDelaySeconds: 20
             periodSeconds: 2
             successThreshold: 2
             failureThreshold: 60
