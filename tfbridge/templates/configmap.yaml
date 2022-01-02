@@ -21,6 +21,6 @@ data:
     bridge:
       {{- toYaml .Values.bridge | nindent 6}}
       mqtt:
-        service: {{.Values.}}
+        service: {{.Values.mqtt.service}}
     spring:
       {{- toYaml .Values.spring | nindent 6}}

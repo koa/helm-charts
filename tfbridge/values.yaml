@@ -10,6 +10,8 @@ image:
   pullPolicy: IfNotPresent
 httpPort: 8080
 mgmtPort: 9080
+mqtt:
+  service: mosquitto
 spring: {}
 bridge: {}
 nameOverride: ""
